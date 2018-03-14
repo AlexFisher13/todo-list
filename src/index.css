@@ -1,0 +1,38 @@
+body {
+  padding: 0;
+  font-family: sans-serif;
+  background: darkgray!important;
+}
+.nav {
+  background-color: gray;
+  text-align: center;
+  padding-top: 20px;
+  height: 100vh;
+}
+.nav-link {
+  color: white;
+}
+.card {
+  background-color: papayawhip!important;
+  margin: 5px;
+  width: 200px;
+}
+.card-body {
+  padding: 0!important;
+}
+.noteEditor {
+  margin: 15px 5px 0 5px!important;
+  height: 50px;
+}
+.noteGrid {
+  padding: 15px;
+}
+button {
+  width: 99px!important;
+}
+.card-text {
+  margin: 4px 8px 8px 8px;
+}
+textarea {
+  resize: none!important;
+}
