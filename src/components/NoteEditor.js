@@ -28,18 +28,13 @@ class NoteEditor extends Component {
 
     render() {
         return (
-            <div className="noteEditor row">
+            <div className="noteEditor">
                 <textarea
-                    className="form-control col-8"
-                    id="exampleFormControlTextarea1"
                     placeholder="Enter your note here..."
                     value={this.state.text}
                     onChange={this.handleTextChange.bind(this)}>
                 </textarea>
-                <button type="button"
-                        className="btn btn-primary col-2"
-                        onClick={this.handleNoteAdd.bind(this)}
-                >Add</button>
+                <button className="add" onClick={this.handleNoteAdd.bind(this)}>Add</button>
             </div>
         );
     }

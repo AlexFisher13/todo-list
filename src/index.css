@@ -1,38 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900');
 body {
   padding: 0;
-  font-family: sans-serif;
-  background: darkgray!important;
-}
-.nav {
-  background-color: gray;
-  text-align: center;
-  padding-top: 20px;
-  height: 100vh;
-}
-.nav-link {
-  color: white;
-}
-.card {
-  background-color: papayawhip!important;
-  margin: 5px;
-  width: 200px;
-}
-.card-body {
-  padding: 0!important;
+  font-family: Montserrat, sans-serif;
+  background: #4fbd70;
 }
 .noteEditor {
-  margin: 15px 5px 0 5px!important;
-  height: 50px;
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: minmax(280px, 450px) minmax(40px, 100px);
+  justify-content: center;
 }
-.noteGrid {
-  padding: 15px;
+.noteGrid{
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 10px;
 }
-button {
-  width: 99px!important;
+.note {
+  background-color: #e1e3e5;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr;
 }
-.card-text {
-  margin: 4px 8px 8px 8px;
+
+p {
+  background-color: white;
+  border-radius: 3px;
+  margin: 7px;
+  padding: 10px;
+  color: rgba(0,0,0,.75);
 }
 textarea {
-  resize: none!important;
+  resize: none;
+  height: 50px;
+  border: 0;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 8px;
+  outline: none;
+}
+button {
+  border: 0;
+  font-weight: 900;
+  font-size: 1rem;
+  color: rgba(0,0,0, .4);
+  background-color: #e7f254;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+}
+.del {
+  background-color: #ddc3b3;
+  height: 30px;
+  font-size: .85rem;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}.del:hover {
+  background-color: #bc9e8d;
+}.del:active {
+  background-color: #96725e;
+}
+.add {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}.add:hover {
+  background-color: #cbd356;
+}.add:active {
+  background-color: #a8af46;
 }
