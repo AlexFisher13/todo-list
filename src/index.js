@@ -4,25 +4,12 @@ import './index.css';
 import App from './App';
 import {createStore} from "redux";
 import {Provider} from "react-redux"
+import reducer from './reducers/reducer'
 
-const initialState = [
-  'learn React',
-    'Clean my mac'
-];
-
-function taskList(state=initialState, action){
-    if (action.type === 'task') {
-        return [
-            ...state,
-            action.payload
-        ];
-    }
-    return state;
-}
-const store = createStore(taskList);
+const store = createStore(reducer);
 
 ReactDOM.render(
     <Provider store={store}>
         <App/>
     </Provider>,
-    document.getElementById('root'));
+document.getElementById('root'));

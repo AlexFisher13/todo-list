@@ -4,15 +4,13 @@ import Note from './components/Note'
 
 class App extends Component {
 
-    addTask(){
+  addTask(){
         const input = document.getElementById("taskInput");
         this.props.onAddTask(input.value);
         input.value = '';
-
-    }
+  }
 
   render() {
-        console.log(this.props.testStore);
     return (
         <div>
             <div className="noteEditor">
@@ -22,13 +20,12 @@ class App extends Component {
                 <button className="add" onClick={this.addTask.bind(this)}>Add</button>
             </div>
 
-            <ul>
+            <div className="noteGrid">
                 {
-                    this.props.testStore.map((task, index) =>
+                    this.props.tasks.map((task, index) =>
                         <Note key={index} task={task}/>
-                    )
-                }
-            </ul>
+                )}
+            </div>
         </div>
     );
   }
@@ -36,7 +33,7 @@ class App extends Component {
 
 export default connect(
     state => ({
-        testStore: state
+        tasks: state.tasks
     }),
     dispatch => ({
         onAddTask: (taskName) => {
