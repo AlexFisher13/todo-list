@@ -1,33 +1,46 @@
 import React, { Component } from 'react';
-import notes from './data'
-import NoteEditor from './components/NoteEditor'
-import NoteGrid from './components/NoteGrid'
+import {connect} from 'react-redux'
+import Note from './components/Note'
 
 class App extends Component {
 
-  constructor(props){
-      super(props);
-      this.state = {
-          notes: notes
-      }
-  }
+    addTask(){
+        const input = document.getElementById("taskInput");
+        this.props.onAddTask(input.value);
+        input.value = '';
 
-  handleNoteAdd(newNote){
-      let newNotes = this.state.notes.slice();
-      newNotes.unshift(newNote);
-      this.setState({
-          notes: newNotes
-      })
-  }
+    }
 
   render() {
+        console.log(this.props.testStore);
     return (
         <div>
-            <NoteEditor onNoteAdd={this.handleNoteAdd} />
-            <NoteGrid notes={this.state.notes} />
+            <div className="noteEditor">
+                <textarea id="taskInput"
+                          placeholder="Enter your note here...">
+                </textarea>
+                <button className="add" onClick={this.addTask.bind(this)}>Add</button>
+            </div>
+
+            <ul>
+                {
+                    this.props.testStore.map((task, index) =>
+                        <Note key={index} task={task}/>
+                    )
+                }
+            </ul>
         </div>
     );
   }
 }
 
-export default App;
+export default connect(
+    state => ({
+        testStore: state
+    }),
+    dispatch => ({
+        onAddTask: (taskName) => {
+            dispatch({type: 'task', payload: taskName})
+        }
+    })
+)(App);
