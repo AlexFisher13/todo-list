@@ -25,7 +25,7 @@ class App extends Component {
                 {
                     this.props.tasks.map((task, index) =>
                         <div key={index} className="note">
-                            <p>{task}</p>
+                            <p>{task.text}</p>
                             <button className="del" onClick={this.delTask.bind(this)}>&#10006;</button>
                         </div>
                 )}
@@ -41,10 +41,10 @@ export default connect(
     }),
     dispatch => ({
         onAddTask: (taskName) => {
-            dispatch({type: 'task', payload: taskName})
+            dispatch({type: 'ADD_TASK', payload: {id: new Date(), text: taskName}})
         },
-        delTask: (taskName) => {
-            dispatch({type: 'delTask', payload: taskName})
+        delTask: (id) => {
+            dispatch({type: 'DEL_TASK', payload: id})
         }
     })
 )(App);
