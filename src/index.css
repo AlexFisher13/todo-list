@@ -4,23 +4,28 @@ body {
   font-family: Montserrat, sans-serif;
   background: #4fbd70;
 }
+h1 {
+  font-weight: lighter;
+  color: darkgreen;
+  text-align: center;
+}
 .noteEditor {
-  margin-top: 15px;
   display: grid;
-  grid-template-columns: minmax(280px, 450px) minmax(40px, 100px);
+  grid-template-columns: 430px 70px;
   justify-content: center;
 }
 .noteGrid{
-  margin-top: 15px;
+  margin-top: 30px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: 500px;
   grid-gap: 10px;
+  justify-content: center;
 }
 .note {
   background-color: #e1e3e5;
   border-radius: 5px;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 430px 70px;
 }
 
 p {
@@ -28,9 +33,12 @@ p {
   border-radius: 3px;
   margin: 7px;
   padding: 10px;
-  color: rgba(0,0,0,.75);
+  color: rgba(0,0,0,.65);
+  display: block;
 }
-textarea {
+#taskInput {
+  font-family: Montserrat;
+  font-size: 1rem;
   resize: none;
   height: 50px;
   border: 0;
@@ -39,21 +47,20 @@ textarea {
   padding: 8px;
   outline: none;
 }
-button {
+button, .btn {
   border: 0;
   font-weight: 900;
   font-size: 1rem;
   color: rgba(0,0,0, .4);
-  background-color: #e7f254;
+  background-color: #dce288;
   text-transform: uppercase;
   cursor: pointer;
   outline: none;
 }
 .del {
-  background-color: #ddc3b3;
-  height: 30px;
-  font-size: .85rem;
-  border-bottom-left-radius: 5px;
+  background-color: #ddc3b8;
+  font-size: 2rem;
+  border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }.del:hover {
   background-color: #bc9e8d;
@@ -61,6 +68,8 @@ button {
   background-color: #96725e;
 }
 .add {
+  font-size: 3.25rem;
+  font-weight: lighter;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }.add:hover {
@@ -68,3 +77,5 @@ button {
 }.add:active {
   background-color: #a8af46;
 }
+::-webkit-input-placeholder {color: lightgray; font-weight: lighter}
+:-ms-input-placeholder      {color: lightgray; font-weight: lighter}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import Note from './components/Note'
 
 class App extends Component {
 
@@ -9,21 +8,26 @@ class App extends Component {
         this.props.onAddTask(input.value);
         input.value = '';
   }
+  delTask(){
+
+  }
 
   render() {
     return (
         <div>
+            <h1>Node List</h1>
             <div className="noteEditor">
-                <textarea id="taskInput"
-                          placeholder="Enter your note here...">
-                </textarea>
-                <button className="add" onClick={this.addTask.bind(this)}>Add</button>
+                <input id="taskInput" placeholder="Enter your note here..."/>
+                <input type="submit" className="btn add" onClick={this.addTask.bind(this)} value='+' />
             </div>
 
             <div className="noteGrid">
                 {
                     this.props.tasks.map((task, index) =>
-                        <Note key={index} task={task}/>
+                        <div key={index} className="note">
+                            <p>{task}</p>
+                            <button className="del" onClick={this.delTask.bind(this)}>&#10006;</button>
+                        </div>
                 )}
             </div>
         </div>
@@ -38,6 +42,9 @@ export default connect(
     dispatch => ({
         onAddTask: (taskName) => {
             dispatch({type: 'task', payload: taskName})
+        },
+        delTask: (taskName) => {
+            dispatch({type: 'delTask', payload: taskName})
         }
     })
 )(App);
