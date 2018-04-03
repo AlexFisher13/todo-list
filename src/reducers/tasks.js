@@ -4,11 +4,12 @@ const initialState = [
 ];
 
 export default function taskList(state=initialState, action){
-    if (action.type === 'ADD_TASK') {
-        return [
-            ...state,
-            action.payload
-        ];
+    switch (action.type) {
+        case('ADD_NOTE'):
+            return [...state, action.payload];
+        case('DEL_NOTE'):
+            return state.filter(el => el.id !== action.payload);
+        default:
+            return state;
     }
-  return state;
 }
