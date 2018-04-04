@@ -1,7 +1,4 @@
-const initialState = [
-    {id: 1, text:'learn React'},
-    {id: 2, text:'Clean my mac'}
-];
+const initialState = [];
 
 export default function taskList(state=initialState, action){
     switch (action.type) {

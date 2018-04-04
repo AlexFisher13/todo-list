@@ -8,10 +8,6 @@ class App extends Component {
         this.props.onAddTask(input.value);
         input.value = '';
   }
-  delTask(id){
-      this.props.onDelTask(1);
-      console.log(this.props.tasks)
-  }
 
   render() {
     return (
@@ -19,7 +15,7 @@ class App extends Component {
             <h1>Node List</h1>
             <div className="noteEditor">
                 <input id="taskInput" placeholder="Enter your note here..."/>
-                <input type="submit" className="btn add" onClick={this.addTask/*сюда нужно передавать id*/.bind(this)} value='&#x2b;'/>
+                <input type="submit" className="btn add" onClick={this.addTask.bind(this)} value='&#x2b;'/>
             </div>
 
             <div className="noteGrid">
@@ -27,7 +23,7 @@ class App extends Component {
                     this.props.tasks.map(task =>
                         <div key={task.id} className="note">
                             <p>{task.text}</p>
-                            <button className="del" onClick={this.delTask.bind(this)}>&#10006;</button>
+                            <button className="del" onClick={() => this.props.onDelTask(task.id)}>&#10006;</button>
                         </div>
                 )}
             </div>
