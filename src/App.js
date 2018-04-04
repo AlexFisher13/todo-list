@@ -15,7 +15,7 @@ class App extends Component {
             <h1>Node List</h1>
             <div className="noteEditor">
                 <input id="taskInput" placeholder="Enter your note here..."/>
-                <input type="submit" className="btn add" onClick={this.addTask.bind(this)} value='&#x2b;'/>
+                <button className="add" onClick={this.addTask.bind(this)}>&#x2b;</button>
             </div>
 
             <div className="noteGrid">

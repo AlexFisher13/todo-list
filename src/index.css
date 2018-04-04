@@ -46,7 +46,7 @@ p {
   padding: 8px;
   outline: none;
 }
-button, .btn {
+button {
   border: 0;
   font-weight: 900;
   font-size: 1rem;
@@ -55,6 +55,7 @@ button, .btn {
   text-transform: uppercase;
   cursor: pointer;
   outline: none;
+  text-align: center;
 }
 .del {
   background-color: #ddc3b8;
