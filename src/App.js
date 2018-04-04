@@ -32,16 +32,20 @@ class App extends Component {
   }
 }
 
-export default connect(
-    state => ({
-        tasks: state.tasks
-    }),
-    dispatch => ({
+const mapStateToProps = (state) => {
+    return {
+        tasks: state
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
         onAddTask: (taskName) => {
             dispatch({type: 'ADD_NOTE', payload: {id: new Date(), text: taskName}})
         },
         onDelTask: (id) => {
             dispatch({type: 'DEL_NOTE', payload: id})
         }
-    })
-)(App);
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);
